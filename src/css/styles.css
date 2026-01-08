@@ -11,5 +11,6 @@
 
 /* Sections style */
 @import url('./timer.css');
+@import url('./snackbar.css');
 @import url('./header.css');
 @import url('./footer.css');

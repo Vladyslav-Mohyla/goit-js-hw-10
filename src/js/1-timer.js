@@ -30,7 +30,7 @@ const options = {
         title: 'Hey',
         message: 'Please, choose a date in the future',
       });
-      startBtn.disabled = true;
+      // startBtn.disabled = true;
       userSelectedDate = null;
       return;
     } else {
@@ -38,6 +38,7 @@ const options = {
     }
   },
 };
+
 flatpickr('#datetime-picker', options);
 
 function convertMs(ms) {
