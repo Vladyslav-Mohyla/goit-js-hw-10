@@ -12,11 +12,9 @@ const refs = {
 
 let userSelectedDate;
 const startBtn = document.querySelector('[data-start]');
-const stopBtn = document.querySelector('[data-stop]');
 const inputPicker = document.querySelector('#datetime-picker');
 let timerId = null;
 startBtn.disabled = true;
-stopBtn.disabled = true;
 
 const options = {
   enableTime: true,
@@ -66,7 +64,6 @@ startBtn.addEventListener('click', () => {
   if (!userSelectedDate) return;
   inputPicker.disabled = true;
   startBtn.disabled = true;
-  stopBtn.disabled = false;
 
   timerId = setInterval(() => {
     const diff = userSelectedDate - new Date();
@@ -74,7 +71,6 @@ startBtn.addEventListener('click', () => {
       clearInterval(timerId);
       timerId = null;
       startBtn.disabled = false;
-      stopBtn.disabled = false;
       inputPicker.disabled = false;
       return;
     }
@@ -82,12 +78,4 @@ startBtn.addEventListener('click', () => {
   }, 1000);
 });
 
-stopBtn.addEventListener('click', () => {
-  if (!timerId) return;
-  clearInterval(timerId);
-  timerId = null;
-  startBtn.disabled = false;
-  stopBtn.disabled = true;
-  inputPicker.disabled = false;
-  addLeadingZero({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-});
+
